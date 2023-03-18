@@ -1,14 +1,35 @@
+import base64
 from math import sqrt
 import math
 import random
+from Crypto.Cipher import DES
+import binascii
+
+def des_encrypt(message, key):
+    key = key.encode('utf-8')
+    key = key[:8]
+    message = message.encode('utf-8')
+    message = message + b"\0" * (8 - len(message) % 8)
+    des = DES.new(key, DES.MODE_ECB)
+    ciphertext = des.encrypt(message)
+    return base64.b64encode(ciphertext).decode()
+
+def des_decrypt(ciphertext, key):
+    key = key[:8].encode('utf-8')
+    ciphertext = base64.b64decode(ciphertext)
+    des = DES.new(key, DES.MODE_ECB)
+    message = des.decrypt(ciphertext)
+    return message.rstrip(b"\0").decode()
 
 def encrypt(k, i):
+    for j in range(len(i)):
+        i[j] = des_encrypt(str(i[j]), k)
     return i
 
 def decrypt(k, i):
+    for j in range(len(i)):
+        i[j] = des_decrypt(str(i[j]), k)
     return i
-
-import random
 
 def k_shuffle(ar):
     """Fisher-Yates Shuffle.
