@@ -3,7 +3,6 @@ from math import sqrt
 import math
 import random
 from Crypto.Cipher import DES
-import binascii
 
 def des_encrypt(message, key):
     key = key.encode('utf-8')
