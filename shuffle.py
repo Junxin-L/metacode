@@ -36,7 +36,6 @@ def mel_shuffle(i, pi, k1, k2, p):
     """The complete Melbourne shuffle process.
         Input: 
             i: array of n encrypted blocks
-            t : Temporary arrays
             k1: previous key
             k2: new key
             pi: permutation array
