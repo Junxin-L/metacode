@@ -16,16 +16,18 @@ server_to_proxy = [Queue(n) for _ in range(n)]
 server_to_client = [Queue(n) for _ in range(n)]
 client_to_server = [Queue(n) for _ in range(n)]
 
-qNumber = 10  # the number of query times
+qNumber = 20  # the number of query times
 blockNumber = 25
 k_new = "fhakghfjgwqufjndmnvkjk"
 k_pre = "dfjhfkjahkfjfaffffaf"
 
 block_list = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999']
 
-bucket_size = int(sqrt(len(block_list)))
-dummy_size = bucket_size
+stash_size = int(sqrt(len(block_list)))
+dummy_size = stash_size
 
+for _ in range(dummy_size):
+    block_list.append('dummy')
 
 def generate_each_random_block(blocksize=32):
     '''
@@ -49,8 +51,10 @@ def generate_random_block(self, blocksize=32):
     :return: None
     '''
     self.block_list = [self.generate_each_random_block(blocksize) for _ in range(self.blockNumber)]
-    self.bucket_size = int(sqrt(len(self.block_list)))
-    self.dummy_size = self.bucket_size
+    self.stash_size = int(sqrt(len(self.block_list)))
+    self.dummy_size = self.stash_size
+    for _ in range(self.dummy_size):
+        block_list.append('dummy')
 
 
 def generate_random_key(randomlength=16):
