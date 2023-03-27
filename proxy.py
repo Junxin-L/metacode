@@ -36,13 +36,14 @@ class Proxy:
         Shuffle all storage blocks.
         '''
         self.queryCount = 0
-        pi = s.fill_pi(len(self.block_list), c.bucket_size)
+        pi = s.fill_pi(len(self.block_list), c.stash_size)
         self.pi_list.append(pi)
         en_block_list = s.encrypt(self.k_pre, self.block_list)
         shuffled_en_block_list = s.mel_shuffle(en_block_list, pi, self.k_pre, self.k_new, 1)
         self.block_list = decrypt(self.k_new, shuffled_en_block_list)
         self.k_pre = self.k_new
         self.k_new = c.generate_random_key()
+        print(self.block_list)
 
     def query(self, i):
         '''

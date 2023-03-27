@@ -34,9 +34,9 @@ def init():
     proxy = Proxy(c.block_list)
     for i in range(0, c.n):
         nodeList.append(Node(i, '1'))
-    pro = Process(target=tFunction_proxy, args=(c.proxy_to_server, c.server_to_proxy, c.bucket_size, nodeList, proxy))
+    pro = Process(target=tFunction_proxy, args=(c.proxy_to_server, c.server_to_proxy, c.stash_size, nodeList, proxy, c.block_list))
     processList.append(pro)
-    cli = Process(target=tFunction_client, args=(c.server_to_client, c.client_to_server, nodeList))
+    cli = Process(target=tFunction_client, args=(c.server_to_client, c.client_to_server, len(c.block_list), c.dummy_size, nodeList))
     processList.append(cli)
     for i in range(0, c.n):
         pro = Process(target=tFunction_server, args=(c.proxy_to_server, c.server_to_proxy, c.server_to_client, c.client_to_server, nodeList, nodeList[i]))
