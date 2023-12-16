@@ -2,7 +2,7 @@
 
 ## Overview
 
-Metacode is a blockchain-based system designed for secure data sharing. It utilizes cryptographic techniques, including Shamir Secret Sharing for request transmission and Pro-ORAM for data storage. The system is engineered to protect metadata and ensure robustness against up to n−1 malicious servers, making it an ideal choice for environments requiring high security and data integrity.
+Metacode is a blockchain-based stimulating system designed for secure data sharing. It utilizes cryptographic techniques, including Shamir Secret Sharing for request transmission and Pro-ORAM for data storage. The system is engineered to protect metadata and ensure robustness against up to n−1 malicious servers, making it an ideal choice for environments requiring high security and data integrity.
 
 ## Features
 
