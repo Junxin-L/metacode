@@ -35,8 +35,7 @@ The system consists of various Python modules, each serving a specific function 
 
 To start the Metacode system, run the `main.py` script:
 
-```
-bashCopy code
+```python
 python main.py
 ```
 
@@ -44,7 +43,6 @@ python main.py
 
 Run the `test.py` script to perform unit tests and ensure the system is functioning correctly:
 
-```
-bashCopy code
+```python
 python test.py
 ```
